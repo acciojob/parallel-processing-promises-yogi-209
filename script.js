@@ -23,11 +23,11 @@ function downloadImages(){
 	loading.style.display="block";
 	const imagePromises=images.map(downloadImage);
 	Promise.all(imagePromises)
-	.then((downloadImages)=>{
+	.then((loadedImages)=>{
 		loadedImages.forEach((img)=>output.appendChild(img));
 	})
 	.catch((error)=>{
-		errorDiv.textContent="none"
+		errorDiv.textContent=error;
 	})
 	finally(()=>{
 		loading.style.display="none";
