@@ -19,7 +19,7 @@ function downloadImages(){
 	output.innerHTML="";
 	errorDiv.innerHTML="";
 	loading.style.display="block";
-	const imagePromise=image.map(downloadImage);
+	const imagePromise=images.map(downloadImage);
 	Promise.all(imagePromises)
 	.then((downloadImages)=>{
 		loadedImages.forEach((img)=>output.appendChild(img));
@@ -27,7 +27,7 @@ function downloadImages(){
 	.catch((error)=>{
 		errorDiv.textContent="none"
 	});
-	btn.addEvenListener("click",downloadImages)
+	btn.addEventListener("click",downloadImages)
 
 
 
