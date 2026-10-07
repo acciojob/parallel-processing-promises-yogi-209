@@ -21,13 +21,16 @@ function downloadImages(){
 	output.innerHTML="";
 	errorDiv.innerHTML="";
 	loading.style.display="block";
-	const imagePromise=images.map(downloadImage);
+	const imagePromises=images.map(downloadImage);
 	Promise.all(imagePromises)
 	.then((downloadImages)=>{
 		loadedImages.forEach((img)=>output.appendChild(img));
 	})
 	.catch((error)=>{
 		errorDiv.textContent="none"
+	})
+	finally(()=>{
+		loading.style.display="none";
 	});
 	btn.addEventListener("click",downloadImages)
 
