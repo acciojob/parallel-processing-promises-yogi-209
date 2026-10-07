@@ -32,6 +32,7 @@ function downloadImages(){
 	finally(()=>{
 		loading.style.display="none";
 	});
+}
 	btn.addEventListener("click",downloadImages)
 
 
